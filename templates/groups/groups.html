@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+    <div class="row">
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for group in groups %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ group.name }}</td>
+                    <td>{{ group.description }}</td>
+                    <td>{{ user.groups_user_belongs_to.first.name }}</td>
+                    <td></td>
+                    {# Тут поки що пусто, вставте дії для кожного користувача #}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <a class="btn btn-outline-success" href="{% url 'add_group' %}">Add Group</a>
+{% endblock %}

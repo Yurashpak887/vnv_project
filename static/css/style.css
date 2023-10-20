@@ -1,0 +1,61 @@
+#h1 {
+    color: red;
+    font-size: 44px;
+}
+
+
+/* Визначення стилів для кнопки "Users" */
+/* Стилі для кнопок "Users" та "Groups" */
+.btn-primary, .btn-success {
+    background-color: #fff; /* Білий фон за замовчуванням */
+    color: #007bff; /* Синій колір тексту за замовчуванням */
+    border: 2px solid #007bff; /* Синя рамка за замовчуванням */
+    padding: 10px 20px; /* Внутрішні відступи */
+    border-radius: 5px; /* Закруглені кути */
+    text-decoration: none; /* Видалити підкреслення тексту */
+    cursor: pointer; /* Зміна курсору при наведенні */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавний перехід при наведенні */
+    width:90%;
+    margin: 2%
+}
+
+/* Зміна стилю при наведенні мишкою */
+.btn-primary:hover, .btn-success:hover {
+    background-color: #007bff; /* Синій фон при наведенні */
+    color: #fff; /* Білий колір тексту при наведенні */
+}
+
+
+.container-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5%;
+}
+
+/* Звичайний стиль для пунктів меню */
+.nav-link {
+    font-weight: normal;
+
+}
+
+/* Стиль для активних пунктів меню */
+.nav-link.active {
+    font-weight: bold;
+
+}
+
+
+.messages-err {
+    color: red; /* Колір тексту червоний */
+    /* Додайте інші стилі за потреби, наприклад, фон, маржі, тощо */
+}
+
+#icon-action{
+    padding:10px;
+    color: #18428c;
+}
+
+a.no-underline {
+    text-decoration: none;
+}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block navi_items %}
+{% endblock %}
+
+{% block title %} Page {% endblock %}
+
+{% block content %}
+<div class="container-btn">
+    <a href="{% url 'getusers'%}" class="btn btn-primary card-link">Users</a>
+    <a href="{% url 'getgroups'%}" class="btn btn-success card-link">Groups</a>
+</div>
+
+{% endblock %}
