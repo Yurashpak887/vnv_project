@@ -21,7 +21,6 @@
                             </ul>
                         {% endif %}
                     </div>
-
                     <div class="mb-3">
                         <label for="group" class="form-label">Group</label>
                         <select class="form-select" aria-label="Disabled select example" name="group" required>
@@ -30,11 +29,8 @@
                                 <option value="{{ group.id }}">{{ group.name }}</option>
                             {% endfor %}
                         </select>
-
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-
-
                 </form>
             </div>
         </div>

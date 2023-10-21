@@ -2,11 +2,14 @@
 
 {% block content %}
 
-
+    {% if messages %}
+        <ul class="fixed-div">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }} "{% endif %}>{{ message }}</li>
+            {% endfor %}        </ul>
+    {% endif %}
 
     <div class="row">
-
-
         <table class="table">
             <thead>
             <tr>
@@ -22,14 +25,19 @@
                     <th scope="row">{{ forloop.counter }}</th>
                     <td>{{ group.name }}</td>
                     <td>{{ group.description }}</td>
-                    <td>{{ user.groups_user_belongs_to.first.name }}</td>
-                    <td></td>
-                    {# Тут поки що пусто, вставте дії для кожного користувача #}
+
+                    <td>
+                        <a href="{% url 'edit_group' group.id %}" class="no-underline btn-left">
+                            <i class="fa-regular fa-pen-to-square fa-xl" id='icon-action'></i>
+                        </a>
+                        <a href="{% url 'delete_group' group.id %}" class="no-underline btn-right">
+                            <i class="fa-regular fa-circle-xmark fa-xl " id='icon-action' style="color: red;"></i>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-
     </div>
     <a class="btn btn-outline-success" href="{% url 'add_group' %}">Add Group</a>
 {% endblock %}

@@ -11,7 +11,8 @@
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control {% if messages %} is-invalid{% endif %}" id="name" name="name" required maxlength="30">
+                        <input type="text" class="form-control {% if messages %} is-invalid{% endif %}" id="name"
+                               name="name" required maxlength="30">
                         {% if messages %}
                             <ul class="messages-err">
                                 {% for message in messages %}
@@ -22,13 +23,20 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" required></textarea>
+                                                <textarea class="form-control" id="description" name="description" required
+                                  oninput="limitDescriptionLength()" maxlength="40"
+                                  aria-required="true"></textarea>
+                        <div id="charCount">Залишилося 30 символів</div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-
             </div>
         </div>
     </div>
+
+
 {% endblock %}
+
+
+
 

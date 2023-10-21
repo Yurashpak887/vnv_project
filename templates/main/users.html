@@ -2,10 +2,7 @@
 
 {% block content %}
 
-
     <div class="row">
-
-
         <table class="table">
             <thead>
             <tr>
@@ -21,24 +18,21 @@
                 <tr>
                     <th scope="row">{{ forloop.counter }}</th>
                     <td>{{ user.username }}</td>
-                    <td>{{ user.date_joined }}</td>
-                    {# Поле 'created' замініть на реальне поле користувача #}
+                    <td>{{ user.date_joined|date:"F d, Y" }}</td>
                     <td>{{ user.groups_user_belongs_to.first.name }}</td>
-                    {# Використовуйте 'groups_user_belongs_to.first' для отримання першої групи та поля 'name' для отримання назви групи #}
                     <td>
-                        <a href="{% url 'edit_user' user.id %}" class="no-underline">
+                        <a href="{% url 'edit_user' user.id %}" class="no-underline btn-left">
                             <i class="fa-regular fa-pen-to-square fa-xl" id='icon-action'></i>
                         </a>
-                        <a href="{% url 'edit_user' user.id %}" class="no-underline">
+                        <a href="{% url 'delete_user' user.id %}" class="no-underline btn-right">
                             <i class="fa-regular fa-circle-xmark fa-xl " id='icon-action' style="color: red;"></i>
                         </a>
-
                     </td>
+
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-
     </div>
     <a class="btn btn-outline-success" href="{% url 'add_user' %}">Add User</a>
 
