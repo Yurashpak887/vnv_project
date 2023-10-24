@@ -129,9 +129,6 @@ STATIC_URL = '/static/'
 
 
 
-STATICFILES_DIRS = [
-    "/vnv_project/static/",
-]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
