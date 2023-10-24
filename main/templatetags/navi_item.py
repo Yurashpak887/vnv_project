@@ -7,5 +7,4 @@ register = template.Library()
 def all_navi(context):
     navi_items = Menu.objects.all()
     current_item = context['request'].path  # Отримуємо URL поточної сторінки
-    print(current_item)
     return {'navi_items': navi_items, 'current_item': current_item}

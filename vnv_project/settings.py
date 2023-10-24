@@ -127,11 +127,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-SSTATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
+STATICFILES_DIRS = [
+    "/vnv_project/static/",
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
