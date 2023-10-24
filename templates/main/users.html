@@ -1,39 +1,42 @@
 {% extends "base.html" %}
+{% block title %}Users{% endblock %}
+
 
 {% block content %}
-
     <div class="row">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">Username</th>
-                <th scope="col">Created</th>
-                <th scope="col">Group</th>
-                <th scope="col">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for user in users %}
+        {% if users %}
+            <table class="table">
+                <thead>
                 <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.date_joined|date:"F d, Y" }}</td>
-                    <td>{{ user.groups_user_belongs_to.first.name }}</td>
-                    <td>
-                        <a href="{% url 'edit_user' user.id %}" class="no-underline btn-left">
-                            <i class="fa-regular fa-pen-to-square fa-xl" id='icon-action'></i>
-                        </a>
-                        <a href="{% url 'delete_user' user.id %}" class="no-underline btn-right">
-                            <i class="fa-regular fa-circle-xmark fa-xl " id='icon-action' style="color: red;"></i>
-                        </a>
-                    </td>
-
+                    <th scope="col">id</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Group</th>
+                    <th scope="col">Actions</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.date_joined|date:"F d, Y" }}</td>
+                        <td>{{ user.groups_user_belongs_to.first.name }}</td>
+                        <td>
+                            <a href="{% url 'edit_user' user.id %}" class="no-underline btn-left">
+                                <i class="fa-regular fa-pen-to-square fa-xl" id='icon-action'></i>
+                            </a>
+                            <a href="{% url 'delete_user' user.id %}" class="no-underline btn-right">
+                                <i class="fa-regular fa-circle-xmark fa-xl " id='icon-action' style="color: red;"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No users found.</p>
+        {% endif %}
     </div>
     <a class="btn btn-outline-success" href="{% url 'add_user' %}">Add User</a>
-
 {% endblock %}

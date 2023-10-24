@@ -9,9 +9,11 @@ from .validation import is_valid_username
 def home(request):
     return render(request, 'main/index.html')
 
+
 def getusers(request):
     users = User.objects.all()
     return render(request, 'main/users.html', {"users": users})
+
 
 def add_user(request):
     if request.method == 'POST':
@@ -20,15 +22,16 @@ def add_user(request):
             groups = request.POST.getlist('group')
 
             if not username or not is_valid_username(username):
-                messages.warning(request,
-                                 'Invalid username format. The username should start with a capital letter of the English alphabet, \n '
-                                 'should not contain digits or spaces.')
+                error_message = 'Invalid username format. The username should start with a capital letter of the English alphabet, ' \
+                                'should not contain digits or spaces.'
+                messages.warning(request, error_message)
                 return redirect('add_user')
 
             try:
                 user = User.objects.create_user(username=username)
             except IntegrityError:
-                messages.warning(request, "The user with this name already exists")
+                error_message = "The user with this name already exists"
+                messages.warning(request, error_message)
                 return redirect('add_user')
 
             for group_id in groups:

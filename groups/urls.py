@@ -1,5 +1,4 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 from .views import getgroups, add_group, edit_group, delete_group
 
